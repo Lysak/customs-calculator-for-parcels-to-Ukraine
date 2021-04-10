@@ -269,6 +269,7 @@ $(function () {
         var servicesCost = getServicesCost(shippingType, cost);
         var shopPercentPrice = 0;
         var shipmentCostWeight = 0;
+        var minimumCommission = 3;
 
         shipmentCostWeight = Math.ceil(deliveryTypeCost * weight * 100) / 100;
 
@@ -283,8 +284,8 @@ $(function () {
         var shipmentCost = shipmentCostWeight;
 
         if (shippingType == 'shop') {
-            //var sum = shipmentCost + cost;
-            shopPercentPrice = shopPercent * cost;
+            let sum = shopPercent * cost;
+            shopPercentPrice = sum < minimumCommission ? minimumCommission : sum;
         }
 
         setShipmentCost(Number(shipmentCost).toFixed(2), shippingType);

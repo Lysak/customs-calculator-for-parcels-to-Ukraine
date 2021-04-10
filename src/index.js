@@ -182,8 +182,8 @@ $(function () {
     };
 
     var getCustomsCost = function (cost) {
-        var customLimit1 = 110; //100 E
-        var customLimit2 = 165; //150 E
+        var customLimit1 = 130.90; //100 E
+        var customLimit2 = 178.49; //150 E
         var customPercent1 = 0.2;
         var customPercent2 = 0.1;
 

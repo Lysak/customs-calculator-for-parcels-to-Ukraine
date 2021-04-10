@@ -14,3 +14,8 @@ yarn build
 ```
 
 to bundle your application
+
+# Helpers
+```
+npx webpack-cli init
+```

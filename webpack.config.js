@@ -1,10 +1,18 @@
 // Generated using webpack-cli http://github.com/webpack-cli
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
+    mode: 'production',
+    entry: {
+        index: './src/index.js',
+        frontend: './src/frontend.js',
+        service_calc: './src/service_calc.js',
+    },
+    // externals: {
+    //     jquery: 'jQuery'
+    // },
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
@@ -15,6 +23,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'index.html',
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
         }),
 
         // Add your plugins here

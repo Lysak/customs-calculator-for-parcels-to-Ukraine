@@ -2,17 +2,13 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'production',
     entry: {
         index: './src/index.js',
-        frontend: './src/frontend.js',
-        service_calc: './src/service_calc.js',
     },
-    // externals: {
-    //     jquery: 'jQuery'
-    // },
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
@@ -21,6 +17,7 @@ module.exports = {
         host: 'localhost',
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: 'index.html',
         }),
